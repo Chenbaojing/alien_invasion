@@ -1,0 +1,94 @@
+{
+  "first_blood": {
+    "unlocked": true,
+    "unlock_time": null
+  },
+  "hundred_kills": {
+    "unlocked": true,
+    "unlock_time": 130358
+  },
+  "thousand_kills": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "ten_thousand_kills": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "level_5": {
+    "unlocked": true,
+    "unlock_time": 75268
+  },
+  "level_10": {
+    "unlocked": true,
+    "unlock_time": 75268
+  },
+  "level_20": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "score_1000": {
+    "unlocked": true,
+    "unlock_time": null
+  },
+  "score_10000": {
+    "unlocked": true,
+    "unlock_time": 124620
+  },
+  "score_100000": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "shield_master": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "freeze_master": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "nuke_master": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "boss_killer": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "boss_master": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "sniper_rookie": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "sniper_expert": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "sniper_master": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "sniper_perfect": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "sniper_legend": {
+    "unlocked": false,
+    "unlock_time": null
+  },
+  "perfect_level": {
+    "unlocked": true,
+    "unlock_time": null
+  },
+  "combo_master": {
+    "unlocked": true,
+    "unlock_time": null
+  },
+  "survivor": {
+    "unlocked": true,
+    "unlock_time": 75268
+  }
+}

@@ -1,0 +1,11 @@
+# 自动处理行尾符
+* text=auto
+
+# 特定文件类型使用LF
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Windows批处理文件使用CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
