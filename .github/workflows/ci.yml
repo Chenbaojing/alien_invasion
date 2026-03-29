@@ -3,11 +3,12 @@ name: CI/CD for Alien Invasion
 on:
   push:
     branches: [ main, master ]
+    tags: [ 'v*' ]
   pull_request:
     branches: [ main, master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +24,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run basic syntax check
+    - name: Run syntax check
       run: |
         python -m py_compile alien_invasion.py
 
-  deploy:
-    needs: build
-    runs-on: windows-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    - name: Run unit tests
+      run: |
+        python -m unittest discover tests
+
+  build:
+    needs: test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v4.2.0
@@ -46,12 +53,60 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
-    - name: Build executable
+    - name: Build executable (Windows)
+      if: matrix.os == 'windows-latest'
       run: |
         pyinstaller --onefile --name alien_invasion alien_invasion.py
 
-    - name: Upload artifact
+    - name: Build executable (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        pyinstaller --onefile --name alien_invasion alien_invasion.py
+
+    - name: Build executable (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        pyinstaller --onefile --name alien_invasion alien_invasion.py
+
+    - name: Upload artifact (Windows)
+      if: matrix.os == 'windows-latest'
       uses: actions/upload-artifact@v4.3.0
       with:
-        name: alien_invasion-executable
+        name: alien_invasion-windows
         path: dist/alien_invasion.exe
+
+    - name: Upload artifact (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-artifact@v4.3.0
+      with:
+        name: alien_invasion-linux
+        path: dist/alien_invasion
+
+    - name: Upload artifact (macOS)
+      if: matrix.os == 'macos-latest'
+      uses: actions/upload-artifact@v4.3.0
+      with:
+        name: alien_invasion-macos
+        path: dist/alien_invasion
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+    - uses: actions/checkout@v4.2.0
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v4.1.7
+
+    - name: Create release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          alien_invasion-windows/alien_invasion.exe
+          alien_invasion-linux/alien_invasion
+          alien_invasion-macos/alien_invasion
+        draft: false
+        prerelease: false
+
