@@ -1,1 +1,2 @@
-# alien_invasion
+### 外星人入侵
+一款用python编写的小游戏
