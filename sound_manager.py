@@ -30,11 +30,11 @@ class SoundManager:
     def _load_sounds(self):
         """加载所有音效文件"""
         sound_files = {
-            'shoot': '射击.mp3',
-            'button_click': '按按钮.mp3',
-            'game_over': '游戏结束.mp3',
-            'explosion': '爆炸.mp3',
-            'ship_hit': '飞船被击中.mp3'
+            'shoot': 'sounds/射击.mp3',
+            'button_click': 'sounds/按按钮.mp3',
+            'game_over': 'sounds/游戏结束.mp3',
+            'explosion': 'sounds/爆炸.mp3',
+            'ship_hit': 'sounds/飞船被击中.mp3'
         }
         
         for name, path in sound_files.items():
@@ -49,7 +49,7 @@ class SoundManager:
     
     def _load_background_music(self):
         """加载背景音乐"""
-        music_path = '背景音乐.mp3'
+        music_path = 'sounds/背景音乐.mp3'
         if os.path.exists(music_path):
             try:
                 pygame.mixer.music.load(music_path)

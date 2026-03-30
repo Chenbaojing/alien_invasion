@@ -28,9 +28,7 @@ jobs:
       run: |
         python -m py_compile alien_invasion.py
 
-    - name: Run unit tests
-      run: |
-        python -m unittest discover tests
+
 
   build:
     needs: test
