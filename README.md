@@ -1,4 +1,4 @@
-# Alien Invasion (外星人入侵)
+# 外星人入侵 (外星人入侵)
 
 一款依赖pygame和PyQt5的关于外星人的Python程序（书中小游戏改编）
 
@@ -6,29 +6,29 @@
 
 - 经典的外星人入侵射击游戏
 - 丰富的游戏系统和成就系统
-- 多平台支持（Windows、Linux、macOS）
+- 许多模式
 - 精美的游戏画面和音效
 
 ## 系统要求
 
 - Python 3.8+
-- pygame
+-Pygame
 - PyQt5
 
 ## 安装
 
 ```bash
 pip install -r requirements.txt
-python alien_invasion.py
+python 外星人入侵.py
 ```
 
 ## 许可证
 
-All Rights Reserved.
+版权所有。
 
 本软件为专有软件，保留所有权利。
 严禁以任何媒介未经授权复制、分发、修改或使用本软件。
 
-## 版本
+##版本
 
 v3.9.4
