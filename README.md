@@ -5,7 +5,7 @@
 ## 作者信息
 
 - **作者**：System32-MC | flb5 联合出品
-- **版本**：v3.9.5 - beta.1
+- **版本**：v3.9.6 - beta.1
 - **项目地址**：<https://github.com/Chenbaojing123/alien_invasion>
 
 > \[!TIP]
@@ -46,7 +46,7 @@ All Rights Reserved.
 
 ## 版本
 
-v3.9.5 - beta.1
+v3.9.6 - beta.1
 
 ## 贡献
 
