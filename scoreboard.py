@@ -17,8 +17,7 @@ class Scoreboard:
         
         # 加载货币图像
         try:
-            self.money_image = pygame.image.load('money.png').convert_alpha()
-            # 缩放货币图像到合适大小
+            self.money_image = pygame.image.load('images/money.png').convert_alpha()
             self.money_image = pygame.transform.scale(self.money_image, (30, 30))
         except:
             self.money_image = None

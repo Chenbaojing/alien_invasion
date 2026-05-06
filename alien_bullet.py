@@ -30,6 +30,27 @@ class AlienBullet(Sprite):
         self.y += self.speed
         self.rect.y = self.y
         
-        # 如果子弹超出屏幕，删除它
         if self.rect.top > self.settings.screen_height:
             self.kill()
+    
+    def reset(self, ai_game, alien):
+        """
+        重置外星人子弹状态
+        
+        Args:
+            ai_game: 游戏实例
+            alien: 发射子弹的外星人
+        """
+        self.screen = ai_game.screen
+        self.settings = ai_game.settings
+        
+        self.image = pygame.Surface((4, 10))
+        self.image.fill((255, 0, 0))
+        
+        self.rect = self.image.get_rect()
+        self.rect.centerx = alien.rect.centerx
+        self.rect.top = alien.rect.bottom
+        
+        self.y = float(self.rect.y)
+        
+        self.speed = 3.0

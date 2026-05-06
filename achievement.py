@@ -162,6 +162,7 @@ class AchievementSystem:
             "狙击专家",
             "狙击模式命中率达到80%且发射至少50发",
             lambda: (self.ai_game.stats.sniper_shots_fired >= 50 and 
+                     self.ai_game.stats.sniper_shots_fired > 0 and
                      self.ai_game.stats.sniper_shots_hit / self.ai_game.stats.sniper_shots_fired >= 0.8),
             500
         ))
@@ -187,6 +188,7 @@ class AchievementSystem:
             "狙击传说",
             "狙击模式命中率达到90%且发射至少100发",
             lambda: (self.ai_game.stats.sniper_shots_fired >= 100 and 
+                     self.ai_game.stats.sniper_shots_fired > 0 and
                      self.ai_game.stats.sniper_shots_hit / self.ai_game.stats.sniper_shots_fired >= 0.9),
             2000
         ))

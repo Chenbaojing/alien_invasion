@@ -508,8 +508,10 @@ class AlienInvasion:
             subprocess.Popen(['python', 'game_2.py'])
         elif self.pong_button.rect.collidepoint(mouse_pos):
             self.sound_manager.play_sound('button_click')
-            # 启动颠球游戏
             subprocess.Popen(['python', 'PyPong.py'])
+        elif self.hangman_button.rect.collidepoint(mouse_pos):
+            self.sound_manager.play_sound('button_click')
+            subprocess.Popen(['python', 'hangman.py'])
         elif self.lander_button.rect.collidepoint(mouse_pos):
             self.sound_manager.play_sound('button_click')
             # 启动飞船着陆游戏
@@ -2129,7 +2131,9 @@ class AlienInvasion:
             shadow_rect = button_rect.copy()
             shadow_rect.x += 3
             shadow_rect.y += 3
-            pygame.draw.rect(self.screen, (0, 0, 0, 80), shadow_rect, border_radius=10)
+            shadow_surface = pygame.Surface((shadow_rect.width, shadow_rect.height), pygame.SRCALPHA)
+            pygame.draw.rect(shadow_surface, (0, 0, 0, 80), shadow_surface.get_rect(), border_radius=10)
+            self.screen.blit(shadow_surface, shadow_rect)
 
             pygame.draw.rect(self.screen, bg_color, button_rect, border_radius=10)
 
@@ -2155,7 +2159,9 @@ class AlienInvasion:
         continue_shadow = continue_button_rect.copy()
         continue_shadow.x += 3
         continue_shadow.y += 3
-        pygame.draw.rect(self.screen, (0, 0, 0, 80), continue_shadow, border_radius=8)
+        continue_shadow_surface = pygame.Surface((continue_shadow.width, continue_shadow.height), pygame.SRCALPHA)
+        pygame.draw.rect(continue_shadow_surface, (0, 0, 0, 80), continue_shadow_surface.get_rect(), border_radius=8)
+        self.screen.blit(continue_shadow_surface, continue_shadow)
 
         continue_bg_color = (60, 180, 60) if continue_hovered else (50, 150, 50)
         pygame.draw.rect(self.screen, continue_bg_color, continue_button_rect, border_radius=8)
@@ -2178,7 +2184,9 @@ class AlienInvasion:
         back_shadow = back_button_rect.copy()
         back_shadow.x += 3
         back_shadow.y += 3
-        pygame.draw.rect(self.screen, (0, 0, 0, 80), back_shadow, border_radius=8)
+        back_shadow_surface = pygame.Surface((back_shadow.width, back_shadow.height), pygame.SRCALPHA)
+        pygame.draw.rect(back_shadow_surface, (0, 0, 0, 80), back_shadow_surface.get_rect(), border_radius=8)
+        self.screen.blit(back_shadow_surface, back_shadow)
 
         back_bg_color = (220, 60, 60) if back_hovered else (200, 50, 50)
         pygame.draw.rect(self.screen, back_bg_color, back_button_rect, border_radius=8)

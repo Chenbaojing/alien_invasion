@@ -83,21 +83,22 @@ class AchievementDisplay:
             # 绘制成就背景框
             bg_rect = pygame.Rect(50, achievement_y, self.screen_rect.width - 100, 70)
             if achievement.unlocked:
-                bg_color = (50, 100, 50, 150)
+                bg_color = (50, 100, 50)
                 border_color = (255, 215, 0)
             else:
-                bg_color = (50, 50, 50, 150)
+                bg_color = (50, 50, 50)
                 border_color = (100, 100, 100)
             
-            pygame.draw.rect(self.screen, bg_color, bg_rect)
+            bg_surface = pygame.Surface((bg_rect.width, bg_rect.height), pygame.SRCALPHA)
+            bg_surface.fill((*bg_color, 150))
+            self.screen.blit(bg_surface, bg_rect)
             pygame.draw.rect(self.screen, border_color, bg_rect, 2)
             
             # 绘制成就图标
             icon_rect = pygame.Rect(60, achievement_y + 10, 50, 50)
             if achievement.unlocked:
-                # 已解锁：使用trophy.bmp图片
                 try:
-                    trophy_image = pygame.image.load('trophy.bmp')
+                    trophy_image = pygame.image.load('images/trophy.bmp')
                     trophy_image = pygame.transform.scale(trophy_image, (50, 50))
                     self.screen.blit(trophy_image, icon_rect)
                 except:
@@ -109,9 +110,8 @@ class AchievementDisplay:
                     ])
                     pygame.draw.circle(self.screen, (255, 215, 0), (icon_rect.centerx, icon_rect.top + 5), 10)
             else:
-                # 未解锁：使用lock.bmp图片
                 try:
-                    lock_image = pygame.image.load('lock.bmp')
+                    lock_image = pygame.image.load('images/lock.bmp')
                     lock_image = pygame.transform.scale(lock_image, (50, 50))
                     self.screen.blit(lock_image, icon_rect)
                 except:

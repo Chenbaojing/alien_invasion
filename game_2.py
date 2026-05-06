@@ -16,7 +16,7 @@ GREEN = (0,255,0)
 BLACK = (0,0,0)
 
 # 飞船
-player_image = pygame.image.load("ship.bmp")
+player_image = pygame.image.load("images/ship.bmp")
 player_size = player_image.get_rect().size
 player_x = 400//2 - player_size[0]//2
 player_y = 600 - player_size[1] - 20

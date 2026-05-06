@@ -118,9 +118,7 @@ class Boss(Sprite):
     def _create_boss_image(self):
         """创建Boss图像"""
         try:
-            # 加载外部Boss图像
-            self.image = pygame.image.load('alien_boss.bmp')
-            # 调整图像大小以适应Boss尺寸
+            self.image = pygame.image.load('images/alien_boss.bmp')
             self.image = pygame.transform.scale(self.image, (self.width, self.height))
         except:
             # 如果加载失败，使用默认图像

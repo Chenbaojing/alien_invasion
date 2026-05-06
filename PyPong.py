@@ -34,7 +34,7 @@ class Paddle(pygame.sprite.Sprite):
 pygame.init()  # Initializes Pygame’s sound module
 pygame.mixer.init()
 
-pygame.mixer.music.load("sounds/bg_music.mp3")  
+pygame.mixer.music.load("sounds/背景音乐.mp3")  
 pygame.mixer.music.set_volume(0.3)  
 pygame.mixer.music.play(-1)  
 
